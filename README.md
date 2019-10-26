@@ -9,15 +9,31 @@ git clone https://github.com/fenggolang/go-mod-demo.git
 # 2. 用goland打开项目初始化模块(会在当前目录新建一个go.mod文件)
 go mod init github.com/fenggolang/go-mod-demo
 
-# 3. 根据go.mod文件来处理依赖关系[增加丢失的module，去掉未用的module]
+# 3. goland命令行下载第三方包(这样会自动在go.mod加入依赖，然后写代码的时候编辑器才会有提示，也就是需要编辑器提示是需要把三方包写在go.mod的require中的)
+go get github.com/gorilla/mux
+
+# 4. 创建一个main.go文件写点代码
+
+# 5. 根据go.mod文件来处理依赖关系[增加丢失的module，去掉未用的module]，这种一般是拉去别人代码的时候，本地需要执行这个拉取依赖包
 go mod tidy -v
 
-# 4. 将依赖复制到vendor目录下
+# 6. 将依赖复制到vendor目录下
 go mod vendor
 ```
-## 如果是存在的项目
+## 如果是存在的项目(从go vendor迁移到go module)
 ```markdown
-
+第一步: 升级到 Go 1.13。
+第二步: 让 GOPATH 从你的脑海中完全消失，早一步踏入未来。
+修改 GOBIN 路径（可选）：go env -w GOBIN=$HOME/bin。
+打开 Go modules：go env -w GO111MODULE=on。
+设置 GOPROXY：go env -w GOPROXY=https://goproxy.cn,direct # 在中国是必须的，因为它的默认值被墙了。
+第三步(可选): 按照你喜欢的目录结构重新组织你的所有项目。
+第四步: 在你项目的根目录下执行 go mod init <OPTIONAL_MODULE_PATH> 以生成 go.mod 文件。
+第五步: 想办法说服你身边所有的人都去走一下前四步。
+```
+## goproxy.cn详细教程
+```markdown
+https://book.eddycjy.com/golang/talk/goproxy-cn.html
 ```
 ## FAQ
 ### go mod init [module]
