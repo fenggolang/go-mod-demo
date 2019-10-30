@@ -9,7 +9,7 @@ import (
 func main() {
 	gMux := mux.NewRouter()
 	gMux.HandleFunc("/", helloHandle)
-	http.ListenAndServe(":8080", gMux)
+	http.ListenAndServe(":8888", gMux)
 }
 
 func helloHandle(w http.ResponseWriter, _ *http.Request) {
