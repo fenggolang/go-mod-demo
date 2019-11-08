@@ -5,10 +5,6 @@ WORKDIR $GOPATH/github.com/fenggolang/go-mod-demo
 #RUN go install -v ./...
 COPY vendor vendor
 COPY . .
-#RUN find / -type f -name build.sh
-RUN ls -l /tmp
-RUN ls -l $GOPATH/src
-RUN echo `pwd`
 
 RUN go build -o main main.go
 RUN ls -l ./
