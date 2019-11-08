@@ -10,5 +10,6 @@ RUN go build -o $GOPATH/bin/main main.go
 EXPOSE 8080
 
 WORKDIR $GOPATH
-
+RUN chown -R 1001:0 $GOPATH
+USER 1001
 CMD bin/main
