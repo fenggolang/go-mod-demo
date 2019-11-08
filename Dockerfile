@@ -1,6 +1,6 @@
 FROM golang:1.13.3-alpine
 
-#WORKDIR /go/src/app
+WORKDIR $GOPATH/github.com/fenggolang/go-mod-demo
 #RUN go get -d -v ./...
 #RUN go install -v ./...
 #COPY . .
