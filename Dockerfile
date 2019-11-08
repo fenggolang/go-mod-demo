@@ -1,7 +1,7 @@
 FROM golang:1.13.3-alpine
 
-WORKDIR $GOPATH/github.com/fenggolang/go-mod-demo
-#COPY . .
+WORKDIR $GOPATH/src
+COPY . .
 
 RUN go build -o main main.go
 RUN ls -l ./
