@@ -11,6 +11,6 @@ RUN ls -l $GOPATH/src
 RUN echo `pwd`
 
 RUN go build -o main main.go
-
+RUN ls -l ./
 
 CMD ["go-mod-demo"]
